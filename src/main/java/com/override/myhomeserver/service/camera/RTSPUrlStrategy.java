@@ -9,7 +9,8 @@ public class RTSPUrlStrategy implements UrlGenerationStrategy {
 
     @Override
     public String generateUrl(Camera camera) {
-        return "rtsp://" + camera.getLogin() + ":" + camera.getPassword() + "@" + camera.getHost() + ":" + camera.getPort();
+        return "rtsp://" + camera.getLogin() + ":" + camera.getPassword()
+                + "@" + camera.getInfo().getHost() + ":" + camera.getInfo().getPort();
     }
 
     @Override

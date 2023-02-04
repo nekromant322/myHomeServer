@@ -1,11 +1,14 @@
 package com.override.myhomeserver.model;
 
 import com.override.myhomeserver.constants.CameraType;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 
 
 @Data
@@ -14,12 +17,8 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Camera {
-    @Id
-    private String name;
-    @Column
-    private String host;
-    @Column
-    private String port;
+    @EmbeddedId
+    private BasicWebDeviceInfo info;
     @Column
     private String login;
     @Column
