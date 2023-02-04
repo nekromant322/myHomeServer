@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Camera panel</title>
+</head>
+<body>
+<table>
+    <th:block th:each="camera : ${cameras}">
+        <tr>
+            <td th:text="${camera.name}">...</td>
+            <td th:text="${camera.url}">...</td>
+
+
+<!--            rtsp://admin:admin@192.168.1.10:554/-->
+
+    </th:block>
+</table>
+</body>
+</html>
