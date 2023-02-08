@@ -15,7 +15,7 @@ let myChart = new Chart(ctx, {
             label: deviceName,
             data: data.map(x => x.value),
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: rgbForString(deviceName),
             tension: 0.1
         }]
     },
