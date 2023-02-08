@@ -22,7 +22,9 @@ public class MeasureRestController {
     }
 
     @GetMapping
-    public List<Measure> getMeasureForDevice(@RequestParam("deviceName") String deviceName, @RequestParam("period") Period period) {
-        return measureService.getMeasuresForDevice(deviceName, period);
+    public List<MeasureDTO> getMeasureForDevice(@RequestParam("deviceName") String deviceName,
+                                             @RequestParam("period") Period period) {
+        List<MeasureDTO> measuresForDevice = measureService.getMeasuresForDevice(deviceName, period);
+        return measureService.roundToMinutesAndFillWithZerosMissingData(measuresForDevice, period);
     }
 }

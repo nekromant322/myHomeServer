@@ -5,15 +5,15 @@ const urlParams = new URLSearchParams(queryString);
 var deviceName = urlParams.get('deviceName')
 var period = "DAY"
 
-// let data = fetchData(deviceName, period);
+var data = fetchData(deviceName, period);
 
 let myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: [0, 1, 2, 3 ,4],
+        labels: data.map(x => x.dateTime),
         datasets: [{
-            label: 'My First Dataset',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            label: deviceName,
+            data: data.map(x => x.value),
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1
@@ -37,7 +37,7 @@ function fetchData(deviceName, period) {
     let data;
     $.ajax({
         method: 'GET',
-        url: "/measure?deviceName" + deviceName,
+        url: "/measure?deviceName=" + deviceName + "&period=" + period,
         async: false,
         success: function (response) {
             data = response;

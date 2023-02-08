@@ -1,8 +1,6 @@
 package com.override.myhomeserver.controller.rest;
 
 import com.override.myhomeserver.dto.CameraDTO;
-import com.override.myhomeserver.model.Camera;
-import com.override.myhomeserver.repository.CameraRepository;
 import com.override.myhomeserver.service.CameraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PutMapping;
