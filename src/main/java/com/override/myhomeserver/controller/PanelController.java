@@ -20,4 +20,10 @@ public class PanelController {
         modelAndView.addObject("cameras", cameraService.findAll());
         return modelAndView;
     }
+
+    @GetMapping("/socket")
+    public ModelAndView getSocketPanel() {
+        ModelAndView modelAndView = new ModelAndView("socketPanel");
+        return modelAndView;
+    }
 }
