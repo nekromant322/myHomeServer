@@ -26,7 +26,7 @@ public class SocketRestController {
     }
 
     @PutMapping
-    public void newSensor(@RequestBody Socket socket) {
+    public void putSocket(@RequestBody Socket socket) {
         socketRepository.save(socket);
     }
 }
