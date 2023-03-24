@@ -3,21 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Camera panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/cameraPanel.css">
 </head>
 <body>
 
-<!--rtsp://admin:admin@ksdmfklsdnmfkl-->
-<!--ip host:port-->
-<table>
+<div class="container-fluid">
     <th:block th:each="camera : ${cameras}">
-        <tr>
-            <td th:text="${camera.name}">...</td>
-            <td th:text="${camera.url}">...</td>
+        <div class="alert alert-primary" role="alert">
+            <p th:text="${camera.name}"></p>
+        </div>
+        <div class="row justify-content-md-center">
+            <a th:href="@{/oneCamera(name=${camera.name})}"
+               style="display: block; width:1980px; height:1080px; overflow:hidden;">
+                <iframe th:src="${camera.url}" width="1980" height="1080" allowfullscreen></iframe>
+            </a>
 
-
-<!--            rtsp://admin:admin@192.168.1.10:554/-->
-
+        </div>
     </th:block>
-</table>
+
+
+</div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
 </body>
 </html>
